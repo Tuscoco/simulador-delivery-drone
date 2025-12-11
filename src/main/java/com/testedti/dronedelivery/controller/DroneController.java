@@ -36,17 +36,20 @@ public class DroneController {
 
     @GetMapping
     public ResponseEntity<List<DroneResponseDTO>> listarTodosDrones(){
-        return ResponseEntity.status(HttpStatus.OK).body(droneService.listarTodosDrones());
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(droneService.listarTodosDrones());
     }
 
     @GetMapping("/{id}")
     public ResponseEntity<DroneResponseDTO> buscarDronePorId(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(droneService.buscarDronePorId(id));
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(droneService.buscarDronePorId(id));
     }
 
     @PutMapping("/{id}")
     public ResponseEntity<DroneResponseDTO> atualizarDrone(@PathVariable Long id, @RequestBody DroneRequestDTO atualizacaoDTO){
-        return ResponseEntity.status(HttpStatus.OK).body(droneService.atualizarDrone(id, atualizacaoDTO));
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(droneService.atualizarDrone(id, atualizacaoDTO));
     }
 
     @DeleteMapping("/{id}")
@@ -57,12 +60,14 @@ public class DroneController {
 
     @GetMapping("/disponiveis")
     public ResponseEntity<List<DroneResponseDTO>> buscarDronesDisponiveis(){
-        return ResponseEntity.status(HttpStatus.OK).body(droneService.buscarDronesDisponiveis());
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(droneService.buscarDronesDisponiveis());
     }
 
     @GetMapping("/capacidade")
     public ResponseEntity<List<DroneResponseDTO>> buscarDronesPorCapacidade(@RequestParam double peso){
-        return ResponseEntity.status(HttpStatus.OK).body(droneService.buscarDronesPorCapacidade(peso));
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(droneService.buscarDronesPorCapacidade(peso));
     }
 
 }

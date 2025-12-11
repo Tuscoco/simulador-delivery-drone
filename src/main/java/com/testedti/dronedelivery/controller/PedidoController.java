@@ -38,7 +38,8 @@ public class PedidoController {
 
     @GetMapping("/{id}")
     public ResponseEntity<BuscarPedidoDTO> buscarPedidoPorId(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(pedidoService.buscarPedidoPorId(id));
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(pedidoService.buscarPedidoPorId(id));
     }
 
     @GetMapping
@@ -58,7 +59,8 @@ public class PedidoController {
 
     @PutMapping("/{id}")
     public ResponseEntity<BuscarPedidoDTO> atualizarPedido(@PathVariable Long id, @RequestBody CriarPedidoRequestDTO atualizacaoDTO){
-        return ResponseEntity.ok(pedidoService.atualizarPedido(id, atualizacaoDTO));
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(pedidoService.atualizarPedido(id, atualizacaoDTO));
     }
 
     @DeleteMapping("/{id}")

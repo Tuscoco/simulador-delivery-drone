@@ -31,32 +31,38 @@ public class EntregaController {
 
     @PostMapping
     public ResponseEntity<EntregaResponseDTO> criarEntrega(@RequestBody CriarEntregaRequestDTO dto){
-        return ResponseEntity.status(HttpStatus.CREATED).body(entregaService.criarEntrega(dto));
+        return ResponseEntity.status(HttpStatus.CREATED)
+            .body(entregaService.criarEntrega(dto));
     }
 
     @GetMapping
     public ResponseEntity<List<EntregaResponseDTO>> listarTodasEntregas(){
-        return ResponseEntity.status(HttpStatus.OK).body(entregaService.listarTodasEntregas());
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(entregaService.listarTodasEntregas());
     }
 
     @GetMapping("/{id}")
-    public ResponseEntity<EntregaResponseDTO> listarEntregaPorId(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(entregaService.buscarEntregaPorId(id));
+    public ResponseEntity<EntregaResponseDTO> buscarEntregaPorId(@PathVariable Long id){
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(entregaService.buscarEntregaPorId(id));
     }
 
     @GetMapping("/status")
     public ResponseEntity<List<EntregaResponseDTO>> listarEntregasPorStatus(@RequestParam StatusEntrega status){
-        return ResponseEntity.status(HttpStatus.OK).body(entregaService.listarEntregasPorStatus(status));
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(entregaService.listarEntregasPorStatus(status));
     }
 
     @PutMapping("/{id}/iniciar")
     public ResponseEntity<EntregaResponseDTO> iniciarEntrega(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(entregaService.iniciarEntrega(id));
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(entregaService.iniciarEntrega(id));
     }
 
     @PutMapping("/{id}/concluir")
     public ResponseEntity<EntregaResponseDTO> concluirEntrega(@PathVariable Long id){
-        return ResponseEntity.status(HttpStatus.OK).body(entregaService.concluirEntrega(id));
+        return ResponseEntity.status(HttpStatus.OK)
+            .body(entregaService.concluirEntrega(id));
     }
 
     @DeleteMapping("/{id}")
