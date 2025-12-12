@@ -55,7 +55,7 @@ public class EntregaService {
         entrega.setDataHoraInicio(null);
         
         Entrega entregaSalva = entregaRepository.save(entrega);
-        droneService.atualizarStatusDrone(droneIdeal.getId(), EstadoDrone.CARREGANDO);
+        droneService.atualizarStatusDrone(droneIdeal.getId(), EstadoDrone.PREPARANDO_ENTREGA);
         
         return new EntregaResponseDTO(entregaSalva);
     }
@@ -105,6 +105,7 @@ public class EntregaService {
         
         double consumoBateria = entrega.getDistanciaTotal() * 0.1;
         droneService.atualizarAutonomia(entrega.getDrone().getId(), consumoBateria);
+        droneService.removerEntregaAtiva(id);
         
         Entrega entregaAtualizada = entregaRepository.save(entrega);
         return new EntregaResponseDTO(entregaAtualizada);

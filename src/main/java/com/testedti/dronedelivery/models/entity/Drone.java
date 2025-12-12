@@ -3,6 +3,7 @@ package com.testedti.dronedelivery.models.entity;
 import jakarta.persistence.Id;
 import jakarta.persistence.OneToOne;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
 import com.testedti.dronedelivery.models.dtos.request.DroneRequestDTO;
 import com.testedti.dronedelivery.models.enums.EstadoDrone;
 
@@ -37,6 +38,7 @@ public class Drone {
     private Coordenada coordenadaAtual;
 
     @OneToOne(mappedBy = "drone")
+    @JsonIgnore
     private Entrega entregaAtiva;
 
     public Drone(DroneRequestDTO dto){

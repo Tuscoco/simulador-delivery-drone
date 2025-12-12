@@ -3,8 +3,9 @@ package com.testedti.dronedelivery.models.enums;
 public enum EstadoDrone {
     
     DISPONIVEL(1),
-    EM_VOO(2),
-    CARREGANDO(3);
+    PREPARANDO_ENTREGA(2),
+    EM_VOO(3),
+    CARREGANDO(4);
 
     private final int valor;
 

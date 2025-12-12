@@ -40,14 +40,14 @@ public class GlobalExceptionHandler {
 
     @ExceptionHandler(NenhumDroneDisponivelException.class)
     public ResponseEntity<ErrorResponse> handleNenhumDroneDisponivelException(NenhumDroneDisponivelException ex){
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(
             LocalDateTime.now(), 400, "Nenhum drone disponível", ex.getMessage()
         ));
     }
 
     @ExceptionHandler(CancelamentoException.class)
     public ResponseEntity<ErrorResponse> handleCancelamentoException(CancelamentoException ex){
-        return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(
+        return ResponseEntity.status(HttpStatus.BAD_REQUEST).body(new ErrorResponse(
             LocalDateTime.now(), 400, "Erro de Cancelamento", ex.getMessage()
         ));
     }

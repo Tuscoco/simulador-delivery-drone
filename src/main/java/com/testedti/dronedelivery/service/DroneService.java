@@ -115,4 +115,11 @@ public class DroneService {
         return new DroneResponseDTO(droneAtualizado);
     }
 
+    public void removerEntregaAtiva(Long id){
+        Drone drone = droneRepository.findById(id)
+            .orElseThrow(() -> new DroneNaoEncontradoException("Drone de id " + id + " não encontrado!"));
+
+        drone.setEntregaAtiva(null);
+    }
+
 }
