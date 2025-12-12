@@ -34,7 +34,7 @@ public class GlobalExceptionHandler {
     @ExceptionHandler(EntregaNaoEncontradaException.class)
     public ResponseEntity<ErrorResponse> handleEntregaNaoEncontradaException(EntregaNaoEncontradaException ex){
         return ResponseEntity.status(HttpStatus.NOT_FOUND).body(new ErrorResponse(
-            LocalDateTime.now(), 404, "Drone Nao Encontrado", ex.getMessage()
+            LocalDateTime.now(), 404, "Entrega Nao Encontrada", ex.getMessage()
         ));
     }
 

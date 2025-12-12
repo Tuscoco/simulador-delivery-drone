@@ -48,16 +48,22 @@ public class EntregaService {
         
         Entrega entrega = new Entrega();
         entrega.setDrone(droneIdeal);
-        entrega.setPedidos(rotaOtimizada);
         entrega.setDistanciaTotal(distanciaTotal);
         entrega.setTempoEstimado(tempoEstimado);
         entrega.setStatus(StatusEntrega.PREPARANDO);
         entrega.setDataHoraInicio(null);
         
         Entrega entregaSalva = entregaRepository.save(entrega);
+        
+        rotaOtimizada.forEach(pedido -> pedido.setEntrega(entregaSalva));
+        entregaSalva.setPedidos(rotaOtimizada);
+        pedidoService.salvarTodosPedidos(rotaOtimizada);
+        
+        Entrega entregaAtualizada = entregaRepository.save(entregaSalva);
+        
         droneService.atualizarStatusDrone(droneIdeal.getId(), EstadoDrone.PREPARANDO_ENTREGA);
         
-        return new EntregaResponseDTO(entregaSalva);
+        return new EntregaResponseDTO(entregaAtualizada);
     }
 
     public EntregaResponseDTO buscarEntregaPorId(Long id){

@@ -82,4 +82,8 @@ public class PedidoService {
         pedidoRepository.deleteAll();
     }
 
+    public void salvarTodosPedidos(List<Pedido> pedidos){
+        pedidoRepository.saveAll(pedidos);
+    }
+
 }
