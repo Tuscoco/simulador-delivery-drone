@@ -964,5 +964,49 @@ DELETE /api/v1/entregas/1
 
 ---
 
+## Dependências e Execução
+
+### Pré-requisitos
+
+Antes de executar o projeto, certifique-se de ter instalado:
+
+| Software | Versão Mínima | Descrição |
+|----------|---------------|-----------|
+| **Java JDK** | 21+ | Java Development Kit |
+| **Maven** | 3.8+ | Gerenciador de dependências |
+| **Git** | 2.0+ | Controle de versão |
+
+### Dependências do Projeto
+
+O projeto utiliza as seguintes dependências principais:
+
+#### Spring Framework
+- **Spring Boot Starter Web**
+- **Spring Boot Starter Data JPA**
+
+#### Banco de Dados
+- **H2 Database**
+- **Hibernate**
+
+### Como Executar
+
+### 1. Clonar o Repositório
+```bash
+git clone https://github.com/Tuscoco/simulador-delivery-drone.git
+cd simulador-delivery-drone
+```
+
+### 2. Compilar o Projeto
+```bash
+mvn clean install
+```
+
+### 3. Executar a Aplicação
+```bash
+mvn spring-boot:run
+```
+
+---
+
 **Documentação Completa - API Simulador de Entregas em Drone**  
 Versão 1.0.0 | Dezembro de 2025
